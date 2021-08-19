@@ -17,7 +17,12 @@ def antes_requisicao():
 
 @app.teardown_request
 def depois_request(exc):
-    g.bd.close()    
+    g.bd.close()   
+
+@app.route('/')
+@app.route('/entradas')
+def exibir_entradas():
+    return render_template('exibir_entradas.html')
 
 @app.route('/hello')
 def pagina_inicial():
