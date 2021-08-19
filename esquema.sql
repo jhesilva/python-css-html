@@ -1,0 +1,7 @@
+DROP TABLE IS EXISTS entradas;
+
+CREATE TABLE entradas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo STRING NOT NULL,
+    texto STRIGN NOT NULL
+);
