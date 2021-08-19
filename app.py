@@ -11,6 +11,14 @@ def conectar_bd():
 app = Flask(__name__)
 app.config.from_object(__name__)
 
+@app.before_request
+def antes_requisicao():
+    g.bd = conectar_bd()
+
+@app.teardown_request
+def depois_request(exc):
+    g.bd.close()    
+
 @app.route('/hello')
 def pagina_inicial():
     return "Hello World"
